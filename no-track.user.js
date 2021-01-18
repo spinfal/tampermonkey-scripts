@@ -6,6 +6,7 @@
 // @author       Spinfal
 // @match        https://discord.com/activ*
 // @match        https://discord.com/channel*
+// @match        https://discord.com/app
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
