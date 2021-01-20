@@ -8,7 +8,6 @@
 // @match        https://discord.com/channel*
 // @match        https://discord.com/app
 // @grant        none
-// @run-at       document-start
 // ==/UserScript==
 
 (() => {
