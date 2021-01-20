@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Discord Trackn't
+// @name         Discord Experiments
 // @namespace    http://tampermonkey.net/
 // @version      1
-// @description  Removes Discord plugins that track analytics and other interactions
+// @description  Allows you to have access to Developer only settings, this can be used to get Stickers!
 // @author       Spinfal
 // @match        https://discord.com/activ*
 // @match        https://discord.com/channel*
