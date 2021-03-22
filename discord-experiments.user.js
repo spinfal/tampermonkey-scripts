@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Discord Experiments
-// @namespace    http://tampermonkey.net/
+// @namespace    https://waa.ai/spinpy
 // @version      1.1
 // @description  Allows you to have access to Developer only settings, this can be used to get Stickers! (go to Settings to see the new options!)
 // @author       Spinfal
