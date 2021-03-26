@@ -14,12 +14,6 @@
     var save;
 
     async function click() {
-        // for performance
-        Game.Toggle('fancy','fancyButton','Fancy graphics ON','Fancy graphics OFF','0');Game.ToggleFancy();
-        Game.Toggle('focus','focusButton','Defocus OFF','Defocus ON','0');
-        Game.Toggle('particles','particlesButton','Particles ON','Particles OFF','0');
-        Game.Toggle('numbers','numbersButton','Numbers ON','Numbers OFF','0');
-        // for performance
         setInterval(function() { document.getElementById('bigCookie').click() }, 0);
     }
 
