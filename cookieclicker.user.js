@@ -1,32 +1,76 @@
 // ==UserScript==
-// @name         Auto Cookie Clicker
+// @name         Cookie Clicker Automator
 // @namespace    https://waa.ai/spinpy
-// @version      1.1
-// @description  Autoclicks the Cookie and gets you easy Cookies and upgrades!
+// @version      1.2
+// @description  Automate Cookie Clicker and have it do the work for you!
 // @author       Spinfal
-// @match        http://orteil.dashnet.org/cookieclicker/
+// @match        http://orteil.dashnet.org/cookieclicker/*
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    function click() {
+    var save;
+
+    async function click() {
+        // for performance
+        Game.Toggle('fancy','fancyButton','Fancy graphics ON','Fancy graphics OFF','0');Game.ToggleFancy();
+        Game.Toggle('focus','focusButton','Defocus OFF','Defocus ON','0');
+        Game.Toggle('particles','particlesButton','Particles ON','Particles OFF','0');
+        Game.Toggle('numbers','numbersButton','Numbers ON','Numbers OFF','0');
+        // for performance
         setInterval(function() { document.getElementById('bigCookie').click() }, 0);
-
     }
 
-    function upgrades() {
-        let delay = prompt('enter an interval to auto buy upgrades (in seconds)');
-        console.log(`delay set to: ${delay}`);
-        setInterval(function() { document.getElementsByClassName('crate upgrade')[0].click() }, parseInt(delay) * 1000);
+    async function upgrades(delay) {
+        if (isNaN(parseInt(delay))) {
+            alert('that wasnt a number.');
+            upgrades(parseInt(prompt('enter an interval to auto buy upgrades (in seconds)')));
+        } else {
+            console.log(`upgrade delay set to: ${delay}`);
+            setInterval(function() { document.getElementById('upgrade0').click() }, parseInt(delay) * 1000);
+            // products
+            setInterval(function() { document.getElementById('product0').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product1').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product2').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product3').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product4').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product5').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product6').click() }, delay * 1000);
+        }
     }
 
-    if (confirm('start autoclicker?')) {
-        click();
+    async function products(delay) {
+        if (isNaN(parseInt(delay))) {
+            alert('that wasnt a number.');
+            upgrades(parseInt(prompt('enter an interval to auto buy products (in seconds)')));
+        } else {
+            console.log(`product delay set to: ${delay}`);
+            setInterval(function() { document.getElementById('product0').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product1').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product2').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product3').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product4').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product5').click() }, delay * 1000);
+            setInterval(function() { document.getElementById('product6').click() }, delay * 1000);
+        }
     }
 
-    if (confirm('auto buy upgrades?')) {
-        upgrades();
-    }
+
+    setTimeout(function() {
+        if (confirm('start autoclicker?')) {
+            click();
+        }
+
+        if (confirm('auto buy upgrades?')) {
+            upgrades(parseInt(prompt('enter an interval to auto buy upgrades (in seconds)')));
+        }
+
+        if (confirm('auto buy products?')) {
+            upgrades(parseInt(prompt('enter an interval to auto buy products (in seconds)')));
+        }
+    }, 3000);
+
+    setInterval(function() { Game.toSave=true;PlaySound('snd/tick.mp3') }, 10000);
 })();
