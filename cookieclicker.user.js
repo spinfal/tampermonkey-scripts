@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Auto Cookie Clicker
 // @namespace    https://waa.ai/spinpy
-// @version      1.2
+// @version      1.3
 // @description  Automate Cookie Clicker and have it do the work for you!
 // @author       Spinfal
 // @match        http://orteil.dashnet.org/cookieclicker/*
