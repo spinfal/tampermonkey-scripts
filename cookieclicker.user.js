@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Cookie Clicker Automator
+// @name         Auto Cookie Clicker
 // @namespace    https://waa.ai/spinpy
 // @version      1.2
 // @description  Automate Cookie Clicker and have it do the work for you!
