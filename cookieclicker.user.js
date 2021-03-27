@@ -11,8 +11,6 @@
 (function() {
     'use strict';
 
-    var save;
-
     async function click() {
         setInterval(function() { document.getElementById('bigCookie').click() }, 0);
     }
