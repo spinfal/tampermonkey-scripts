@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Discord Trackn't
 // @namespace    http://tampermonkey.net/
-// @version      1
+// @version      1.1
 // @description  Removes Discord plugins & cookies that track analytics and other interactions
 // @author       Spinfal
 // @match        https://discord.com/activ*
