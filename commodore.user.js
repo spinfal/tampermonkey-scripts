@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Commodore Clicker Exploit
 // @namespace    https://waa.ai/spinpy
-// @version      1.4
+// @version      1.5
 // @description  An exploit that will add useful features!
 // @author       Spinfal
 // @match        http://c64clicker.com/
@@ -61,6 +61,16 @@
         disk.innerText = 'Toggle Disk Selection';
         disk.setAttribute('onclick', "document.getElementsByTagName('div')[19].classList.toggle('hidden');");
         document.getElementsByClassName('status')[0].append(disk);
+
+        const br2 = document.createElement('br'); // just a br
+        document.getElementsByClassName('status')[0].append(br2);
+
+        var status = 'off';
+        var auto;
+        const click = document.createElement('button'); // toggle autoclicker
+        click.innerText = 'Toggle Auto Clicker';
+        click.setAttribute('onclick', "if (status === '' || status === 'off') { auto = setInterval(function() { document.getElementById('click').click(); }, 0); status = 'on'; } else if (status === 'on') { clearInterval(auto); status = 'off'; }");
+        document.getElementsByClassName('status')[0].append(click);
     }
     setTimeout(function() { loadButtons(); }, 300);
 })();
