@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Chihuahuaspin Cheat
 // @namespace    https://waa.ai/spinpy
-// @version      1.0
+// @version      1.1
 // @description  Allows you to change the amount of spins in chihuahuaspin.com
 // @author       Spinfal
 // @match        http://www.chihuahuaspin.com/
