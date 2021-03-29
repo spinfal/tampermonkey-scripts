@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MathPapa No-Pro Calculator 
 // @namespace    http://waa.ai/spinpy
-// @version      1.3
+// @version      1.4
 // @description  Allows you to use MathPapa's calculator and show the steps for work without needing to buy the Pro version
 // @author       Spinfal
 // @match        https://mathpapa.com/*
