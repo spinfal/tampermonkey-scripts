@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter Followers (Qlizz Auto-Clicker)
 // @namespace    https://waa.ai/spinpy
-// @version      1
+// @version      1.1
 // @description  Every 1 hour, it will automatically click the Get Followers button!
 // @author       Spinfal
 // @match        https://twitter.qlizz.com/autofollowers
