@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Commodore Clicker Exploit
 // @namespace    https://waa.ai/spinpy
-// @version      1.2
+// @version      1.3
 // @description  An exploit that will add useful features!
 // @author       Spinfal
 // @match        http://c64clicker.com/
@@ -30,7 +30,7 @@
     function loadButtons() {
         const mod = document.createElement('li'); // change pixel amount
         mod.innerHTML = '<img src="https://www.google.com/s2/favicons?domain=www.spinfal.ga" draggable="false"> Change pixel count';
-        mod.setAttribute('onclick', "let amount = prompt('new amount'); if (isNaN(parseInt(amount))) { alert('that wasnt a number!'); } else { localStorage.setItem('c64click.bank', parseInt(amount)); window.location.reload(); }");
+        mod.setAttribute('onclick', "let amount = prompt('new amount'); if (isNaN(parseInt(amount))) { alert('that wasnt a number!'); } else { localStorage.setItem('c64click.bank', parseInt(amount)); localStorage.setItem('c64click.produced', parseInt(amount)); window.location.reload(); }");
         mod.setAttribute('id', 'option2');
         mod.setAttribute('class', 'active');
         document.getElementsByTagName('ul')[3].append(mod);
