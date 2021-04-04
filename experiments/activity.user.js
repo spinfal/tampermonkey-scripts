@@ -10,6 +10,8 @@
 
 (function() {
     'use strict';
+    
+    // MAKE SURE IT RUNS AT document-start IN SCRIPT SETTINGS!!
 
     // heh, exeriment. nice one discord
     localStorage.setItem('exerimentOverrides', '{"2020-11_poker_night":{"type":"guild","revision":1,"bucket":2,"override":true}}');
