@@ -10,6 +10,8 @@
 
 (function() {
     'use strict';
+    
+    // MAKE SURE IT RUNS AT document-start IN SCRIPT SETTINGS!!
 
     // heh, exeriment. nice one discord
     localStorage.setItem('exerimentOverrides', '{"2020-09_dsti_user_settings":{"type":"user","revision":1,"bucket":1,"override":true},"2020-09_dstiinternaluser":{"type":"user","revision":1,"bucket":1,"override":true},"2020-06_dsti_internal":{"type":"guild","revision":1,"bucket":1,"override":true}}');
