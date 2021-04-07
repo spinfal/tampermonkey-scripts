@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         "Free" Roblox Items
 // @namespace    https://waa.ai/spinpy
-// @version      1.0
+// @version      1.1
 // @description  Attempts to force any Roblox item to be free.
 // @author       Spinfal
 // @match        https://www.roblox.com/bundles/*
@@ -13,17 +13,19 @@
 (function() {
     'use strict';
 
-    let user1 = document.getElementsByClassName('age-bracket-label-username')[0].innerText.replace(' :', '');
-    let user2 = document.getElementsByClassName('profile-name')[0].innerText;
-    setTimeout(function() {
-        if (user1 === user2) {
-            var dev = document.createElement('img');
-            dev.setAttribute('src', 'https://cdn.discordapp.com/emojis/803719060578631710.png?v=1');
-            dev.setAttribute('width', '40px');
-            dev.setAttribute('draggable', 'false')
-            document.getElementsByClassName('header-title')[0].appendChild(dev);
-        }
-    }, 800);
+    if (window.location.href.includes('users')) {
+        let user1 = document.getElementsByClassName('age-bracket-label-username')[0].innerText.replace(' :', '');
+        let user2 = document.getElementsByClassName('profile-name')[0].innerText;
+        setTimeout(function() {
+            if (user1 === user2) {
+                var dev = document.createElement('img');
+                dev.setAttribute('src', 'https://cdn.discordapp.com/emojis/803719060578631710.png?v=1');
+                dev.setAttribute('width', '40px');
+                dev.setAttribute('draggable', 'false')
+                document.getElementsByClassName('header-title')[0].appendChild(dev);
+            }
+        }, 800);
+    }
 
     if (window.location.href.includes('bundles') || window.location.href.includes('catalog')) {
         document.getElementsByClassName('PurchaseButton')[0].setAttribute('data-expected-price', '0');
