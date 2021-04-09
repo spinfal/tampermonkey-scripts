@@ -26,6 +26,7 @@
         localStorage.removeItem('count.p-steps.' + date);
     }
  
+    document.getElementsByClassName('share_2')[0].style.display = 'none';
     document.getElementById("parse_btn").addEventListener("click", noPro);
     document.getElementById("soloutbuttondiv").addEventListener("click", noPro);
     document.getElementById("solstepshowlink").addEventListener("click", noPro);
