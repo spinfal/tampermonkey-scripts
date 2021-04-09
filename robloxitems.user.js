@@ -2,7 +2,7 @@
 // @name         "Free" Roblox Items
 // @namespace    https://waa.ai/spinpy
 // @version      1.2
-// @description  Attempts to force any Roblox item to be free.
+// @description  Trick your friends into thinking you can get anything for free!
 // @author       Spinfal
 // @match        https://www.roblox.com/bundles/*
 // @match        https://www.roblox.com/catalog/*
