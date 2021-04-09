@@ -1,15 +1,17 @@
 // ==UserScript==
 // @name         "Free" Roblox Items
 // @namespace    https://waa.ai/spinpy
-// @version      1.2
+// @version      1.3
 // @description  Trick your friends into thinking you can get anything for free!
 // @author       Spinfal
 // @match        https://www.roblox.com/bundles/*
 // @match        https://www.roblox.com/catalog/*
 // @match        https://www.roblox.com/users/*
+// @match        https://www.roblox.com/games/*
 // @match        https://web.roblox.com/bundles/*
 // @match        https://web.roblox.com/catalog/*
 // @match        https://web.roblox.com/users/*
+// @match        https://web.roblox.com/games/*
 // @grant        none
 // ==/UserScript==
 
@@ -76,5 +78,35 @@
         spin.setAttribute('class', 'font-header-1 text-subheader text-label text-overflow field-label');
         spin.innerHTML = '<i>Modded by <br>Spin</i>';
         document.getElementById('item-details').appendChild(spin);
+    }
+
+    if (window.location.href.includes('games')) {
+        let hasRun = false;
+        document.getElementById('tab-store').addEventListener('click', function() {
+            if (hasRun === false) {
+                var spincred = document.createElement('p');
+                spincred.innerHTML = '<i>Modded by Spin</i>';
+                document.getElementsByClassName('col-xs-12')[2].append(spincred);
+                setTimeout(function() {
+                    for (var x = 0; x < 999; x++) {
+                        document.getElementsByClassName('PurchaseButton')[x].setAttribute('data-expected-price', '0');
+                        document.getElementsByClassName('PurchaseButton')[x].setAttribute('data-button-action', 'get');
+                        document.getElementsByClassName('PurchaseButton')[x].removeAttribute('data-se');
+                        console.log(`set prices - ${x}`);
+                    }
+                }, 600);
+                hasRun = true;
+            }
+        });
+
+        document.getElementById('confirm-btn').addEventListener('click', function() {
+            var click = setInterval(function() {
+                document.getElementById('simplemodal-overlay').addEventListener('click', function() { clearInterval(click); });
+                document.getElementById('simplemodal-overlay').click();
+                console.log('hi');
+                sessionStorage.setItem(window.location.href, 'itemOwned');
+            }, 100);
+            setItemStatus();
+        });
     }
 })();
