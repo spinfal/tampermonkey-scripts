@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Robux Changer
 // @namespace    https://waa.ai/spinpy
-// @version      1.3
+// @version      1.4
 // @description  Adds a button to trick your friends and change your Robux count!
 // @author       Spinfal
 // @match        https://www.roblox.com/*
@@ -44,7 +44,7 @@
 
                 let a = document.createElement('a');
                 a.setAttribute('class', 'rbx-menu-item');
-                a.setAttribute('onclick', 'document.getElementsByClassName("content")[0].innerHTML = `<br><input type="number" placeholder="Robux Amount" id="newRbx" class="form-control input-field ng-pristine ng-untouched ng-valid ng-empty"><br><br><button id="setRbxBtn" class="btn-control-sm acct-settings-btn ng-binding">Set New Amount</button><br><br><button id="defaultRbxBtn" class="btn-control-sm acct-settings-btn ng-binding">Set to Default</button><br><br><button id="cancelRbxBtn" class="btn-control-sm acct-settings-btn ng-binding">Cancel</button>`');
+                a.setAttribute('href', 'https://www.roblox.com/admin/setRoblox');
                 a.innerText = 'Set Robux';
                 document.getElementById('changeRbxBtn').appendChild(a);
                 console.log('set a');
