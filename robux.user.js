@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Robux Changer
 // @namespace    https://waa.ai/spinpy
-// @version      1.7
+// @version      1.8
 // @description  Adds a button to trick your friends and change your Robux count!
 // @author       Spinfal
 // @match        https://www.roblox.com/*
@@ -53,6 +53,7 @@
                 let a = document.createElement('a');
                 a.setAttribute('class', 'rbx-menu-item');
                 a.setAttribute('href', 'https://www.roblox.com/admin/setRoblox');
+                a.setAttribute('onclick', 'localStorage.setItem(`currentURL`, window.location.href)');
                 a.innerText = 'Set Robux';
                 document.getElementById('changeRbxBtn').appendChild(a);
                 console.log('set a');
@@ -61,13 +62,17 @@
     }, 0);
 
     if (window.location.href.includes('admin/setRoblox')) {
+        console.log(localStorage.getItem('currentURL'));
+        if (localStorage.getItem('currentURL') === '' || localStorage.getItem('currentURL') === null) {
+            localStorage.setItem('currentURL', 'https://roblox.com');
+        } // yes i know there is pushback for history but like shut up
         document.getElementsByClassName("content")[0].innerHTML = `<br><input type="number" placeholder="Robux Amount" id="newRbx" class="form-control input-field"><br><br><button id="setRbxBtn" class="btn-control-sm">Set New Amount</button><br><br><button id="defaultRbxBtn" class="btn-control-sm">Set to Default</button><br><br><button id="cancelRbxBtn" class="btn-control-sm">Cancel</button>`;
         setTimeout(function() {
-            document.getElementById('setRbxBtn').setAttribute('onclick', 'localStorage.setItem("spinbux", document.getElementById("newRbx").value); window.open("https://roblox.com", "_self");');
+            document.getElementById('setRbxBtn').setAttribute('onclick', `localStorage.setItem("spinbux", document.getElementById("newRbx").value); window.open("${localStorage.getItem('currentURL')}", "_self");`);
             console.log('set onclick');
-            document.getElementById('defaultRbxBtn').setAttribute('onclick', 'localStorage.setItem("spinbux", ""); window.open("https://roblox.com", "_self");');
+            document.getElementById('defaultRbxBtn').setAttribute('onclick', `localStorage.setItem("spinbux", ""); window.open("${localStorage.getItem('currentURL')}", "_self");`);
             console.log('set default onclick');
-            document.getElementById('cancelRbxBtn').setAttribute('onclick', 'window.open("https://roblox.com", "_self");');
+            document.getElementById('cancelRbxBtn').setAttribute('onclick', `window.open("${localStorage.getItem('currentURL')}", "_self");`);
             console.log('set clear onclick');
         }, 0);
     }
