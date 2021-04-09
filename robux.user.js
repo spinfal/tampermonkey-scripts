@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Robux Changer
 // @namespace    https://waa.ai/spinpy
-// @version      1.1
+// @version      1.2
 // @description  Adds a button to trick your friends and change your Robux count!
 // @author       Spinfal
 // @match        https://www.roblox.com/*
@@ -52,21 +52,9 @@
                 document.getElementById('changeRbxBtn').addEventListener('click', function() {
                     setTimeout(function() {
                         document.getElementById('setRbxBtn').setAttribute('onclick', 'localStorage.setItem("spinbux", document.getElementById("newRbx").value); window.open("https://roblox.com", "_self");');
-                        console.log('set onclick');
-                    }, 500);
-                });
-
-                document.getElementById('changeRbxBtn').addEventListener('click', function() {
-                    setTimeout(function() {
                         document.getElementById('defaultRbxBtn').setAttribute('onclick', 'localStorage.setItem("spinbux", ""); window.open("https://roblox.com", "_self");');
-                        console.log('set clear onclick');
-                    }, 500);
-                });
-
-                document.getElementById('changeRbxBtn').addEventListener('click', function() {
-                    setTimeout(function() {
                         document.getElementById('cancelRbxBtn').setAttribute('onclick', 'window.open("https://roblox.com", "_self");');
-                        console.log('set cancel onclick');
+                        console.log('set onclick');
                     }, 500);
                 });
             }, 0);
