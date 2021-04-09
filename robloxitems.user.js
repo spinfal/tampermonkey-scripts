@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         "Free" Roblox Items
 // @namespace    https://waa.ai/spinpy
-// @version      1.1
+// @version      1.2
 // @description  Attempts to force any Roblox item to be free.
 // @author       Spinfal
 // @match        https://www.roblox.com/bundles/*
