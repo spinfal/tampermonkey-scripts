@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Chihuahuaspin Cheat
 // @namespace    https://waa.ai/spinpy
-// @version      1.1
+// @version      1.2
 // @description  Allows you to change the amount of spins in chihuahuaspin.com
 // @author       Spinfal
 // @match        http://www.chihuahuaspin.com/
@@ -38,4 +38,6 @@
         change(parseInt(set));
     }
 
+    // uwu - webhook test
+    
 })();
