@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Robux Changer
 // @namespace    https://waa.ai/spinpy
-// @version      1.6
+// @version      1.7
 // @description  Adds a button to trick your friends and change your Robux count!
 // @author       Spinfal
 // @match        https://www.roblox.com/*
@@ -12,20 +12,28 @@
 (function() {
     'use strict';
 
+    function addCommas(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
+
     //if (localStorage.getItem("spinbux") !== null) {
         setTimeout(function() {
-            if (isNaN(parseInt(localStorage.getItem("spinbux"))) === false) {
+            let newAmount = parseInt(localStorage.getItem("spinbux"));
+            if (isNaN(newAmount) === false) {
+                newAmount = addCommas(newAmount);
                 if (window.location.href.includes('transactions')) {
                     setTimeout(function() {
-                        document.getElementsByTagName('span')[61].innerText = localStorage.getItem("spinbux");
+                        document.getElementsByTagName('span')[61].innerText = newAmount;
                     }, 0);
                 }
                 document.getElementById('navbar-robux').addEventListener('click', function() {
                     setTimeout(function() {
-                        document.getElementsByClassName('rbx-menu-item')[5].innerText = `${localStorage.getItem("spinbux")} Robux`;
+                        document.getElementsByClassName('rbx-menu-item')[5].innerText = `${newAmount} Robux`;
                     }, 0);
                 });
-                document.getElementById('nav-robux-amount').innerText = localStorage.getItem("spinbux");
+                document.getElementById('nav-robux-amount').innerText = newAmount;
             } else {
                 console.log('invalid robux value detected, setting to default and removing localStorage key.');
                 localStorage.removeItem("spinbux");
