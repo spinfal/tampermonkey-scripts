@@ -7,6 +7,9 @@
 // @match        https://www.roblox.com/bundles/*
 // @match        https://www.roblox.com/catalog/*
 // @match        https://www.roblox.com/users/*
+// @match        https://web.roblox.com/bundles/*
+// @match        https://web.roblox.com/catalog/*
+// @match        https://web.roblox.com/users/*
 // @grant        none
 // ==/UserScript==
 
