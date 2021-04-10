@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Robux Changer
+// @name         Roblox Robux Changer
 // @namespace    https://waa.ai/spinpy
-// @version      1.8.1
+// @version      1.9
 // @description  Adds a button to trick your friends and change your Robux count!
 // @author       Spinfal
 // @match        https://www.roblox.com/*
@@ -52,7 +52,7 @@
 
                 let a = document.createElement('a');
                 a.setAttribute('class', 'rbx-menu-item');
-                a.setAttribute('href', 'https://www.roblox.com/admin/setRoblox');
+                a.setAttribute('href', 'https://www.roblox.com/admin/setRobux');
                 a.setAttribute('onclick', 'sessionStorage.setItem(`currentURL`, window.location.href)');
                 a.innerText = 'Set Robux';
                 document.getElementById('changeRbxBtn').appendChild(a);
@@ -61,7 +61,7 @@
         });
     }, 0);
 
-    if (window.location.href.includes('admin/setRoblox')) {
+    if (window.location.href.includes('admin/setRobux')) {
         console.log(sessionStorage.getItem('currentURL'));
         if (sessionStorage.getItem('currentURL') === '' || sessionStorage.getItem('currentURL') === null) {
             sessionStorage.setItem('currentURL', 'https://roblox.com');
