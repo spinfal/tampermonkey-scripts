@@ -2,7 +2,7 @@
 // @name         Discord Sticker Enabler
 // @namespace    https://waa.ai/spinpy
 // @run-at       document-start
-// @version      1.0
+// @version      1.1
 // @description  An easy way to enable Discord Stickers!
 // @author       Spinfal
 // @match        https://discord.com/*
