@@ -2,7 +2,7 @@
 // @name         Hi Just a Test
 // @namespace    http://tampermonkey.net/
 // @version      1
-// @description  Discord Test Plugin
+// @description  Discord Sticker Test Plugin
 // @author       Spinfal
 // @match        https://discord.com/activ*
 // @match        https://discord.com/channel*
