@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name         Discord Sticker Enabler
 // @namespace    https://waa.ai/spinpy
+// @run-at       document-start
 // @version      1.0
 // @description  An easy way to enable Discord Stickers!
 // @author       Spinfal
@@ -11,7 +12,7 @@
 (function() {
     'use strict';
     
-    // MAKE SURE IT RUNS AT document-start IN SCRIPT SETTINGS!!
+    // thanks andyvuj24 for telling me abt @run-at 
 
     // heh, exeriment. nice one discord
     localStorage.setItem('exerimentOverrides', '{"2020-09_dsti_user_settings":{"type":"user","revision":1,"bucket":1,"override":true},"2020-09_dstiinternaluser":{"type":"user","revision":1,"bucket":1,"override":true},"2020-06_dsti_internal":{"type":"guild","revision":1,"bucket":1,"override":true}}');
