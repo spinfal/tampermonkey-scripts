@@ -1,16 +1,27 @@
 // ==UserScript==
 // @name         Discord Tags 'n Badges
 // @namespace    https://waa.ai/spinpy
-// @version      1.4
+// @version      1.5
 // @description  Gives you badges and tags on Discord! (client-side only)
 // @author       Spinfal
 // @exclude      https://discord.com/
 // @match        https://discord.com/channels/*
+// @match        https://discord.com/app
 // @grant        none
 // ==/UserScript==
  
 (function() {
     'use strict';
+ 
+    const dev = window.location.search;
+    const checkDev = new URLSearchParams(dev);
+    if (checkDev.get('loadDev') === 'true') {
+        enableDev();
+    } else if (checkDev.get('loadDev') === null) {
+        window.open(`//discord.com/channels/@me?loadDev=false`, '_self');
+    } else if (checkDev.get('loadDev') != 'false') {
+        window.open(`//discord.com/channels/@me?loadDev=false`, '_self');
+    }
  
     setTimeout(() => { start(); document.addEventListener("dblclick", start); }, 3000); // ensures page loads before running script
  
@@ -46,14 +57,63 @@
         findModule('Messages').Messages.SYSTEM_DM_TAG_SYSTEM = NAME;
     }
  
+    function enableDev() {
+            // Extracted from Samogot's LibDiscordInternals for BetterDiscord.
+            const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
+                '__extra_id__': (module, exports, req) => exports.default = req
+            }, ['__extra_id__']).default : webpackJsonp.push([[], {
+                '__extra_id__': (module, exports, req) => module.exports = req
+            }, [['__extra_id__']]]);
+            delete req.m['__extra_id__'];
+            delete req.c['__extra_id__'];
+            const find = (filter, options = {}) => {
+                const {cacheOnly = true} = options;
+                for (let i in req.c) {
+                    if (req.c.hasOwnProperty(i)) {
+                        let m = req.c[i].exports;
+                        if (m && m.__esModule && m.default && filter(m.default))
+                            return m.default;
+                        if (m && filter(m))
+                            return m;
+                    }
+                }
+                if (cacheOnly) {
+                    console.warn('Cannot find loaded module in cache');
+                    return null;
+                }
+                console.warn('Cannot find loaded module in cache. Loading all modules may have unexpected side effects');
+                for (let i = 0; i < req.m.length; ++i) {
+                    try {
+                        let m = req(i);
+                        if (m && m.__esModule && m.default && filter(m.default))
+                            return m.default;
+                        if (m && filter(m))
+                            return m;
+                    }
+                    catch (e) {
+                    }
+                }
+                console.warn('Cannot find module');
+                return null;
+            };
+            const findByUniqueProperties = (propNames, options) => find(module => propNames.every(prop => module[prop] !== undefined), options);
+            Object.defineProperty(findByUniqueProperties(["isDeveloper"]),"isDeveloper",{get:_=>1,set:_=>_,configurable:true});
+    }
+ 
     function start() {
-        var options = prompt('1: tags\n2: badges\n3: change tag label');
+        var options = prompt('use the numbers as selection\n1: tags\n2: badges\n3: change tag label\n4: enable/disable experiments in settings');
         if (options==="1") {
             getTags();
         } else if (options==="2") {
             getBadges();
         } else if (options==="3") {
             changeName();
+        } else if (options==="4") {
+            if (checkDev.get('loadDev') === 'false') {
+                window.open(`//discord.com/channels/@me?loadDev=true`, '_self');
+            } else if (checkDev.get('loadDev') === 'true') {
+                window.open(`//discord.com/channels/@me?loadDev=false`, '_self');
+            }
         } else {
             console.log('invalid option or nothing provided');
         }
