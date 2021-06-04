@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Discord Tags 'n Badges
 // @namespace    https://waa.ai/spinpy
-// @version      1.5
+// @version      1.6
 // @description  Gives you badges and tags on Discord! (client-side only)
 // @author       Spinfal
 // @exclude      https://discord.com/
