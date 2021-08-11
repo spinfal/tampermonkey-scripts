@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Discord Token Login
 // @namespace    https://spinfal.ga/
-// @version      1.0
+// @version      1.1
 // @description  Allows you to login with a token
 // @author       Spinfal
 // @match        https://*discord.com/*
 // @match        https://token.spinfal.repl.co/*
+// @exclude      https://discord.com/oauth*
 // @icon         https://www.google.com/s2/favicons?domain=discord.com
 // @grant        none
 // ==/UserScript==
